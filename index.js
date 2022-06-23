@@ -1,7 +1,12 @@
 const functions = require("@google-cloud/functions-framework")
 const mongoose = require("mongoose")
 var Random = require("./random")
-var auth = require("./auth.json")
+
+
+auth = {
+    publicToken: process.env.PUBLIC_TOKEN,
+    mongoUrl : process.env.MONGO
+}
 const commands = require("./commandHandler")
 
 mongoose.connect(
