@@ -15,14 +15,18 @@ const nacl = require("tweetnacl")
 const PUBLIC_KEY = auth.publicToken
 
 commands.onStart()
+console.log(typeof PUBLIC_KEY === "string")
+console.log(typeof auth.mongoUrl)
 
 functions.http("Sakura", async (req, res) => {
 	const signature = req.get("X-Signature-Ed25519")
 	const timestamp = req.get("X-Signature-Timestamp")
 	const body = req.rawBody // rawBody is expected to be a string, not raw bytes
-
-	const isVerified = nacl.sign.detached.verify(Buffer.from(timestamp + body), Buffer.from(signature, "hex"), Buffer.from(PUBLIC_KEY, "hex"))
-
+	try {
+		var isVerified = nacl.sign.detached.verify(Buffer.from(timestamp + body), Buffer.from(signature, "hex"), Buffer.from(PUBLIC_KEY, "hex"))
+	} catch (e) {
+		var isVerified = false
+	}
 	if (req.rawBody) {
 		var current = new Random({ data: req.rawBody.toString() })
 		await current.save()
