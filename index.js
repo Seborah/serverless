@@ -19,7 +19,7 @@ const PUBLIC_KEY = auth.publicToken
 
 commands.onStart()
 
-functions.http("Helpmeee", async (req, res) => {
+functions.http("Sakura", async (req, res) => {
 	const signature = req.get("X-Signature-Ed25519")
 	const timestamp = req.get("X-Signature-Timestamp")
 	const body = req.rawBody // rawBody is expected to be a string, not raw bytes
