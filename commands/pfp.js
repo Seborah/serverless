@@ -38,7 +38,8 @@ function pfp(options, interaction) {
 						},
 					},
 				],
-				allowed_mentions: { parse: [] },
+                allowed_mentions: { parse: [] },
+                
 			},
 		}
 	}
