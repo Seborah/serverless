@@ -1,0 +1,37 @@
+name: Deployment
+
+# on commit push, run job
+on: [push]
+
+jobs:
+  run:
+    # worker runs on latest ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    # checkout to our repository so we have access to the source code
+    - uses: actions/checkout@v3
+      
+    - id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: ${{ secrets.gcp_credentials }}
+
+
+
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      with:
+        name: 'Sakura'
+        project_id: 'obsequi'
+        region: 'us-central1'
+        memory_mb: 128
+        # runtime to use for the function
+        runtime: 'nodejs16'
+        # the function execution timeout
+        timeout: 40
+        https_trigger_security_level: 'secure_always'
+        deploy_timeout: 200
+        # the maximum number of instances for the function.
+        max_instances: 3000
+        secret_environment_variables: 'SAKURA=projects/736692187548/secrets/sakuraEnvironmentVariables/versions/2'
