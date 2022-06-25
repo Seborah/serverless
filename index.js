@@ -41,11 +41,11 @@ functions.http("Sakura", async (req, res) => {
 				return res.status(401).send("invalid request signature")
 			}
 			//respond to slash commands
-			res.send(commands.commands(data))
+			return res.send(commands.commands(data))
 		} else {
-			res.send("hello World")
+			return res.send("hello World")
 		}
 	} else {
-		res.send("nope")
+		return res.send("nope")
 	}
 })
