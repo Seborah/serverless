@@ -1,7 +1,9 @@
 const functions = require("@google-cloud/functions-framework")
 const mongoose = require("mongoose")
 var Random = require("./random")
+
 var auth = JSON.parse(process.env.SAKURA)
+
 const commands = require("./commandHandler")
 
 mongoose.connect(
