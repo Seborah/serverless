@@ -4,8 +4,6 @@ var Random = require("./random")
 
 var auth = JSON.parse(process.env.SAKURA)
 
-//testing
-
 const commands = require("./commandHandler")
 
 mongoose.connect(auth.mongoUrl, { useNewUrlParser: true })
