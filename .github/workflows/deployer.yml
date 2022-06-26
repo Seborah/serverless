@@ -1,7 +1,10 @@
 name: Deployment
 
 # on commit push, run job
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   run:
