@@ -5,8 +5,8 @@ const discordTypes = require("discord-api-types/v10")
  * @param {discordTypes.APIInteraction} interaction
  * @returns {discordTypes.APIInteractionResponse}
  */
-function coinflip(options, interaction) {
-	var heads = Math.random() > 0.5
+
+function invite(options, interaction) {
 	return {
 		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
 		data: {
@@ -14,12 +14,11 @@ function coinflip(options, interaction) {
 			embeds: [
 				{
 					color: 16748144,
-					title: heads ? "Heads" : "Tails",
-					image: {
-						url: heads
-							? "https://cdn.discordapp.com/attachments/771202289678942219/809931693392789514/unknown.png"
-							: "https://cdn.discordapp.com/attachments/771202289678942219/809926972800237638/tails.png",
+					title: "Invite me to your server!",
+					thumbnail: {
+						url: "https://cdn.discordapp.com/attachments/858003263030951976/985937579197202483/image.png",
 					},
+					url: "https://discord.com/api/oauth2/authorize?client_id=771500590731231233&permissions=0&scope=applications.commands",
 				},
 			],
 			allowed_mentions: { parse: [] },
@@ -27,4 +26,4 @@ function coinflip(options, interaction) {
 	}
 }
 
-module.exports = { coinflip }
+module.exports = { invite }

@@ -14,6 +14,7 @@ function userinfo(options, interaction) {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.data.resolved.users[options.get("user")].username,
 						description: "ID: " + interaction.data.resolved.users[options.get("user")].id,
 						thumbnail: {
@@ -34,6 +35,7 @@ function userinfo(options, interaction) {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.member.user.username,
 						description: "ID: " + interaction.member.user.id,
 						thumbnail: {

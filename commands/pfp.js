@@ -13,6 +13,7 @@ function pfp(options, interaction) {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.data.resolved.users[options.get("user")].username,
 						image: {
 							url: avatarURL(
@@ -32,14 +33,14 @@ function pfp(options, interaction) {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.member.user.username,
 						image: {
 							url: avatarURL(interaction.member.user.id, interaction.member.user.avatar),
 						},
 					},
 				],
-                allowed_mentions: { parse: [] },
-                
+				allowed_mentions: { parse: [] },
 			},
 		}
 	}

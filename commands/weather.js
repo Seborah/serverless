@@ -5,8 +5,8 @@ const discordTypes = require("discord-api-types/v10")
  * @param {discordTypes.APIInteraction} interaction
  * @returns {discordTypes.APIInteractionResponse}
  */
-function coinflip(options, interaction) {
-	var heads = Math.random() > 0.5
+
+function kill(options, interaction) {
 	return {
 		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
 		data: {
@@ -14,11 +14,9 @@ function coinflip(options, interaction) {
 			embeds: [
 				{
 					color: 16748144,
-					title: heads ? "Heads" : "Tails",
-					image: {
-						url: heads
-							? "https://cdn.discordapp.com/attachments/771202289678942219/809931693392789514/unknown.png"
-							: "https://cdn.discordapp.com/attachments/771202289678942219/809926972800237638/tails.png",
+					title: "Coming soon",
+					thumbnail: {
+						url: "https://tenor.com/view/laplus-%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B9-%E3%83%80%E3%83%BC%E3%82%AF%E3%83%8D%E3%82%B9-gif-24711107",
 					},
 				},
 			],
@@ -27,4 +25,4 @@ function coinflip(options, interaction) {
 	}
 }
 
-module.exports = { coinflip }
+module.exports = { kill }
