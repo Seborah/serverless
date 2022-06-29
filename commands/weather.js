@@ -6,7 +6,7 @@ const discordTypes = require("discord-api-types/v10")
  * @returns {discordTypes.APIInteractionResponse}
  */
 
-function kill(options, interaction) {
+function weather(options, interaction) {
 	return {
 		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
 		data: {
@@ -25,4 +25,4 @@ function kill(options, interaction) {
 	}
 }
 
-module.exports = { kill }
+module.exports = { command: weather }

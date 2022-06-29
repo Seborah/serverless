@@ -64,4 +64,4 @@ function hug(options, interaction) {
 	}
 }
 
-module.exports = { hug }
+module.exports = { command: hug }

@@ -63,4 +63,4 @@ function kill(options, interaction) {
 	}
 }
 
-module.exports = { kill }
+module.exports = { command: kill }

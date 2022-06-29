@@ -27,4 +27,4 @@ function coinflip(options, interaction) {
 	}
 }
 
-module.exports = { coinflip }
+module.exports = {command:  coinflip }

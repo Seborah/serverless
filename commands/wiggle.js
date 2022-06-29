@@ -41,4 +41,4 @@ function wiggle(options, interaction) {
 	}
 }
 
-module.exports = { wiggle }
+module.exports = { command: wiggle }

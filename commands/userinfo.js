@@ -62,4 +62,4 @@ function avatarURL(id, avatarHash) {
 	}
 }
 
-module.exports = { userinfo: userinfo }
+module.exports = {command:  userinfo }

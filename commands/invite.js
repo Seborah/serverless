@@ -26,4 +26,4 @@ function invite(options, interaction) {
 	}
 }
 
-module.exports = { invite }
+module.exports = {command:  invite }

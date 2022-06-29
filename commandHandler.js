@@ -24,7 +24,7 @@ function commands(interaction) {
 			commandArgs.set(interaction.data.options[i].name, interaction.data.options[i].value)
 		}
 	}
-	return commandFunctions.get(commandName)[`${commandName}`](commandArgs, interaction)
+	return commandFunctions.get(commandName).command(commandArgs, interaction)
 }
 
 module.exports = { commands, onStart }

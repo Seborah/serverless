@@ -41,4 +41,4 @@ function wholesome(options, interaction) {
 	}
 }
 
-module.exports = { wholesome }
+module.exports = { command: wholesome }
