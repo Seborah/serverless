@@ -1,4 +1,4 @@
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 /**
  *
  * @param {Map} options
@@ -27,4 +27,4 @@ function coinflip(options, interaction) {
 	}
 }
 
-module.exports = {command:  coinflip }
+module.exports = { coinflip }

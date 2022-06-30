@@ -1,5 +1,5 @@
 var fs = require("fs")
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 //read files and then import them for functions
 var commandFunctions = new Map()
 onStart()

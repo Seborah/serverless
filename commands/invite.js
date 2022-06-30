@@ -1,4 +1,4 @@
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 /**
  *
  * @param {Map} options
@@ -26,4 +26,4 @@ function invite(options, interaction) {
 	}
 }
 
-module.exports = {command:  invite }
+module.exports = { invite }
