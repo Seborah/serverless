@@ -1,9 +1,11 @@
 const { REST } = require("@discordjs/rest")
 const { Routes } = require("discord-api-types/v9")
-const { SlashCommandBuilder } = require("@discordjs/builders")
+const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders")
 const { clientID, token } = require("./auth.json")
 
 const commands = [
+	new ContextMenuCommandBuilder().setName("emote").setType(2),
+    new ContextMenuCommandBuilder().setName("crying").setType(3),
 	new SlashCommandBuilder().setName("wholesome").setDescription("Sends a wholesome GIF"),
 	new SlashCommandBuilder().setName("wiggle").setDescription("Sends a wiggle GIF"),
 	new SlashCommandBuilder().setName("coinflip").setDescription("Sends a coin flip GIF"),
@@ -23,6 +25,7 @@ const commands = [
 		.addUserOption((options) => options.setName("user").setRequired(false).setDescription("The user to get info on, defaults to you")),
 	new SlashCommandBuilder()
 		.setName("pfp")
+		.setDMPermission(true)
 		.setDescription("Sends a the user's profile picture")
 		.addUserOption((options) => options.setName("user").setRequired(false).setDescription("The user to get the profile picture for, defaults to you")),
 	new SlashCommandBuilder()
