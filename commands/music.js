@@ -27,7 +27,7 @@ function music(options, interaction) {
 	]
 
 	return {
-		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+		type: 4,
 		data: {
 			tts: false,
 			embeds: [

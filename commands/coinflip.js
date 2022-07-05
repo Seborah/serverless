@@ -8,7 +8,7 @@
 function coinflip(options, interaction) {
 	var heads = Math.random() > 0.5
 	return {
-		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+		type: 4,
 		data: {
 			tts: false,
 			embeds: [

@@ -8,7 +8,7 @@
 function pfp(options, interaction) {
 	if (options.has("user")) {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
@@ -28,7 +28,7 @@ function pfp(options, interaction) {
 		}
 	} else {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [

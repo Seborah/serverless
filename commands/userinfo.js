@@ -9,7 +9,7 @@ function userinfo(options, interaction) {
 	if (options.has("user")) {
 		console.log("has a user ")
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
@@ -30,7 +30,7 @@ function userinfo(options, interaction) {
 		}
 	} else {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [

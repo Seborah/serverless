@@ -31,7 +31,8 @@ const commands = [
 	new SlashCommandBuilder()
 		.setName("weather")
 		.setDescription("Sends the weather for a zip code")
-		.addNumberOption((options) => options.setName("zipcode").setRequired(true).setDescription("The zip code to send the weather for")),
+        .addNumberOption((options) => options.setName("zipcode").setRequired(true).setDescription("The zip code to send the weather for")),
+    
 ].map((command) => command.toJSON())
 
 const rest = new REST({ version: "9" }).setToken(token)

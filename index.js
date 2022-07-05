@@ -16,8 +16,7 @@ mongoose.connect(auth.mongoUrl, { useNewUrlParser: true })
 const PUBLIC_KEY = auth.publicToken
 
 commands.onStart()
-console.log(typeof PUBLIC_KEY === "string")
-console.log(typeof auth.mongoUrl)
+
 
 functions.http("Sakura", async (req, res) => {
     
@@ -39,7 +38,6 @@ functions.http("Sakura", async (req, res) => {
 		var info = req.rawBody.toString()
 		var data = JSON.parse(info)
 		if (data.type == 1) {
-			console.log("type 1")
 			res.status(200)
 			res.send({ type: 1 })
 		} else if (data.type == 2) {
