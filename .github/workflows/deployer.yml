@@ -39,4 +39,4 @@ jobs:
         min_instances: 1
         # the maximum number of instances for the function.
         max_instances: 3000
-        secret_environment_variables: 'SAKURA=projects/736692187548/secrets/sakuraEnvironmentVariables/versions/2'
+        secret_environment_variables: 'SAKURA=projects/736692187548/secrets/sakuraEnvironmentVariables/versions/latest'
