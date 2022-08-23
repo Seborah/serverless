@@ -28,7 +28,7 @@ function userinfo(options, interaction) {
                     {
                         color: 16748144,
                         title: interaction.data.resolved.users[options.get("user")].username,
-                        description: `ID: ${interaction.data.resolved.users[options.get("user")].id} \nAccount Created: <t:${timestampFrom(interaction.data.resolved.users[options.get("user")].id)}>`,
+                        description: `ID: ${interaction.data.resolved.users[options.get("user")].id} \nAccount Created: <t:${new Date(timestampFrom(interaction.data.resolved.users[options.get("user")].id))}>`,
 						thumbnail: {
 							url: avatarURL(
 								interaction.data.resolved.users[options.get("user")].id,
@@ -49,7 +49,7 @@ function userinfo(options, interaction) {
 					{
 						color: 16748144,
 						title: interaction.member.user.username,
-						description:  `ID: ${interaction.member.user.id} \nAccount Created: <t:${timestampFrom(interaction.member.user.id)}>`,
+						description:  `ID: ${interaction.member.user.id} \nAccount Created: <t:${new Date(timestampFrom(interaction.member.user.id))}>`,
 						thumbnail: {
 							url: avatarURL(interaction.member.user.id, interaction.member.user.avatar),
 						},
