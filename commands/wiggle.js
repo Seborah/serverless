@@ -30,7 +30,7 @@ function wiggle(options, interaction) {
 			embeds: [
 				{
 					color: 16748144,
-					title: "wiggle",
+					title: "wibble wobble",
 					image: {
 						url: gifArray[Math.floor(Math.random() * gifArray.length)],
 					},
