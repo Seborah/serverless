@@ -1,4 +1,4 @@
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 /**
  *
  * @param {Map} options
@@ -8,11 +8,12 @@ const discordTypes = require("discord-api-types/v10")
 function pfp(options, interaction) {
 	if (options.has("user")) {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.data.resolved.users[options.get("user")].username,
 						image: {
 							url: avatarURL(
@@ -27,19 +28,19 @@ function pfp(options, interaction) {
 		}
 	} else {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.member.user.username,
 						image: {
 							url: avatarURL(interaction.member.user.id, interaction.member.user.avatar),
 						},
 					},
 				],
-                allowed_mentions: { parse: [] },
-                
+				allowed_mentions: { parse: [] },
 			},
 		}
 	}
@@ -58,4 +59,4 @@ function avatarURL(id, avatarHash) {
 	}
 }
 
-module.exports = { pfp }
+module.exports = {command:  pfp }

@@ -1,22 +1,25 @@
 const functions = require("@google-cloud/functions-framework")
-const mongoose = require("mongoose")
+const commands = require("./commandHandler")
 var Random = require("./random")
+const nacl = require("tweetnacl")
 
 var auth = JSON.parse(process.env.SAKURA)
 
 const commands = require("./commandHandler")
 
+//! slow, adds extra import and is very large (cries)
+const mongoose = require("mongoose")
 mongoose.connect(auth.mongoUrl, { useNewUrlParser: true })
-const nacl = require("tweetnacl")
+
 
 // Your public key can be found on your application in the Developer Portal
 const PUBLIC_KEY = auth.publicToken
 
 commands.onStart()
-console.log(typeof PUBLIC_KEY === "string")
-console.log(typeof auth.mongoUrl)
+
 
 functions.http("Sakura", async (req, res) => {
+    
 	const signature = req.get("X-Signature-Ed25519")
 	const timestamp = req.get("X-Signature-Timestamp")
 	const body = req.rawBody // rawBody is expected to be a string, not raw bytes
@@ -28,13 +31,13 @@ functions.http("Sakura", async (req, res) => {
         return res.status(401).send("invalid request signature")
     }
 	if (req.rawBody) {
-		
+		//! slow
 		var current = new Random({ data: req.rawBody.toString() })
-		await current.save()
+        await current.save()
+        
 		var info = req.rawBody.toString()
 		var data = JSON.parse(info)
 		if (data.type == 1) {
-			console.log("type 1")
 			res.status(200)
 			res.send({ type: 1 })
 		} else if (data.type == 2) {

@@ -6,7 +6,7 @@
  * @returns {discordTypes.APIInteractionResponse}
  */
 
-function kill(options, interaction) {
+function music(options, interaction) {
 	var gifArray = [
 		"https://cdn.discordapp.com/attachments/759047395957932083/798595828909473822/Threat_Stewie.gif",
 		"https://cdn.discordapp.com/attachments/759047395957932083/798595737751388181/Kicks.gif",
@@ -26,41 +26,23 @@ function kill(options, interaction) {
 		"https://cdn.discordapp.com/attachments/771202289678942219/851217842815893594/1tenor.gif",
 	]
 
-	if (options.has("user")) {
-		return {
-			type: 4,
-			data: {
-				tts: false,
-				embeds: [
-					{
-						color: 16748144,
-						title: interaction.member.user.username + " killed " + interaction.data.resolved.users[options.get("user")].username,
-						image: {
-							url: gifArray[Math.floor(Math.random() * gifArray.length)],
-						},
+	return {
+		type: 4,
+		data: {
+			tts: false,
+			embeds: [
+				{
+					color: 16748144,
+					title: "My music document:",
+					thumbnail: {
+						url: "https://cdn.discordapp.com/attachments/858003263030951976/985937579197202483/image.png",
 					},
-				],
-				allowed_mentions: { parse: [] },
-			},
-		}
-	} else {
-		return {
-			type: 4,
-			data: {
-				tts: false,
-				embeds: [
-					{
-						color: 16748144,
-						title: interaction.member.user.username + " killed themselves",
-						image: {
-							url: gifArray[Math.floor(Math.random() * gifArray.length)],
-						},
-					},
-				],
-				allowed_mentions: { parse: [] },
-			},
-		}
+					url: "https://docs.google.com/document/d/1LeU9KheFkgISES8ojZhZL_h6uDSfbxJNaYXcRnCblHg/edit?usp=sharing",
+				},
+			],
+			allowed_mentions: { parse: [] },
+		},
 	}
 }
 
-module.exports = { command: kill }
+module.exports = {command:  music }

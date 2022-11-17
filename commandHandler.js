@@ -1,5 +1,5 @@
 var fs = require("fs")
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 //read files and then import them for functions
 var commandFunctions = new Map()
 onStart()
@@ -24,7 +24,7 @@ function commands(interaction) {
 			commandArgs.set(interaction.data.options[i].name, interaction.data.options[i].value)
 		}
 	}
-	return commandFunctions.get(commandName)[`${commandName}`](commandArgs, interaction)
+	return commandFunctions.get(commandName).command(commandArgs, interaction)
 }
 
 module.exports = { commands, onStart }

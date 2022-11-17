@@ -1,4 +1,4 @@
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 /**
  *
  * @param {Map} options
@@ -6,10 +6,8 @@ const discordTypes = require("discord-api-types/v10")
  * @returns {discordTypes.APIInteractionResponse}
  */
 
-
-
 function hug(options, interaction) {
-    var gifArray = [
+	var gifArray = [
 		"https://cdn.discordapp.com/attachments/830472618082697267/844583573445279795/29bda53055fd3c8e11b800b8a5af4beb.gif",
 		"https://cdn.discordapp.com/attachments/822956984411488257/849727051681235054/ezgif.com-gif-maker.gif",
 		"https://cdn.discordapp.com/attachments/830472618082697267/844583577009258536/tenor_6.gif",
@@ -26,17 +24,18 @@ function hug(options, interaction) {
 		"https://cdn.discordapp.com/attachments/830472618082697267/844584377249169418/tenor1.gif",
 		"https://cdn.discordapp.com/attachments/830472618082697267/844584527292792854/tenor3.gif",
 		"https://cdn.discordapp.com/attachments/771202289678942219/851216421937479740/2tenor.gif",
-		"https://cdn.discordapp.com/attachments/771202289678942219/851216425913548800/1tenor.gif"
+		"https://cdn.discordapp.com/attachments/771202289678942219/851216425913548800/1tenor.gif",
 	]
 
-    if (options.has("user")) {
+	if (options.has("user")) {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
 					{
-						title: interaction.member.user.username +" hugged " + interaction.data.resolved.users[options.get("user")].username,
+						color: 16748144,
+						title: interaction.member.user.username + " hugged " + interaction.data.resolved.users[options.get("user")].username,
 						image: {
 							url: gifArray[Math.floor(Math.random() * gifArray.length)],
 						},
@@ -47,24 +46,22 @@ function hug(options, interaction) {
 		}
 	} else {
 		return {
-			type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+			type: 4,
 			data: {
 				tts: false,
 				embeds: [
 					{
+						color: 16748144,
 						title: interaction.member.user.username + " hugged themselves",
 						image: {
-							url: gifArray[Math.floor(Math.random() * gifArray.length)]
+							url: gifArray[Math.floor(Math.random() * gifArray.length)],
 						},
 					},
 				],
-                allowed_mentions: { parse: [] },
-                
+				allowed_mentions: { parse: [] },
 			},
 		}
 	}
 }
 
-
-
-module.exports = { hug }
+module.exports = { command: hug }

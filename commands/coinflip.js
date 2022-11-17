@@ -1,4 +1,4 @@
-const discordTypes = require("discord-api-types/v10")
+//const discordTypes = require("discord-api-types/v10")
 /**
  *
  * @param {Map} options
@@ -6,19 +6,19 @@ const discordTypes = require("discord-api-types/v10")
  * @returns {discordTypes.APIInteractionResponse}
  */
 function coinflip(options, interaction) {
-    var heads = Math.random() > 0.5
+	var heads = Math.random() > 0.5
 	return {
-		type: discordTypes.InteractionResponseType.ChannelMessageWithSource,
+		type: 4,
 		data: {
 			tts: false,
 			embeds: [
 				{
-					title:heads ? "Heads": "Tails",
+					color: 16748144,
+					title: heads ? "Heads" : "Tails",
 					image: {
-						url:
-							heads
-								? "https://cdn.discordapp.com/attachments/771202289678942219/809931693392789514/unknown.png"
-								: "https://cdn.discordapp.com/attachments/771202289678942219/809926972800237638/tails.png",
+						url: heads
+							? "https://cdn.discordapp.com/attachments/771202289678942219/809931693392789514/unknown.png"
+							: "https://cdn.discordapp.com/attachments/771202289678942219/809926972800237638/tails.png",
 					},
 				},
 			],
