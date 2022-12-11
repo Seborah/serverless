@@ -1,13 +1,8 @@
 const functions = require("@google-cloud/functions-framework")
 const commands = require("./commandHandler")
-var Random = require("./random")
 const nacl = require("tweetnacl")
 
 var auth = JSON.parse(process.env.SAKURA)
-
-//! slow, adds extra import and is very large (cries)
-const mongoose = require("mongoose")
-mongoose.connect(auth.mongoUrl, { useNewUrlParser: true })
 
 // Your public key can be found on your application in the Developer Portal
 const PUBLIC_KEY = auth.publicToken
@@ -26,9 +21,7 @@ functions.http("Sakura", async (req, res) => {
 		return res.status(401).send("invalid request signature")
 	}
 	if (req.rawBody) {
-		//! slow
-		var current = new Random({ data: req.rawBody.toString() })
-		await current.save()
+
 
 		var info = req.rawBody.toString()
 		var data = JSON.parse(info)
