@@ -5,7 +5,7 @@ const { clientID, token } = require("./auth.json")
 
 const commands = [
 	new ContextMenuCommandBuilder().setName("emote").setType(2),
-    new ContextMenuCommandBuilder().setName("crying").setType(3),
+	new ContextMenuCommandBuilder().setName("crying").setType(3),
 	new SlashCommandBuilder().setName("wholesome").setDescription("Sends a wholesome GIF"),
 	new SlashCommandBuilder().setName("wiggle").setDescription("Sends a wiggle GIF"),
 	new SlashCommandBuilder().setName("coinflip").setDescription("Sends a coin flip GIF"),
@@ -31,8 +31,7 @@ const commands = [
 	new SlashCommandBuilder()
 		.setName("weather")
 		.setDescription("Sends the weather for a zip code")
-        .addNumberOption((options) => options.setName("zipcode").setRequired(true).setDescription("The zip code to send the weather for")),
-    
+		.addNumberOption((options) => options.setName("zipcode").setRequired(true).setDescription("The zip code to send the weather for")),
 ].map((command) => command.toJSON())
 
 const rest = new REST({ version: "9" }).setToken(token)
