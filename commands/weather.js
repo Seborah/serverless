@@ -1,4 +1,7 @@
-const { default: axios } = require("axios")
+const axios  = require("axios").default
+
+var auth = JSON.parse(process.env.SAKURA)
+
 
 var auth = JSON.parse(process.env.SAKURA)
 
@@ -14,7 +17,7 @@ async function weather(options, interaction) {
 	 * @type {string}
 	 */
 	var zipcode = options.get("zipcode").toString().padStart(5, "0").substring(0, 5)
-	var weatherRaw = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},$us&appid=${auth.openweathermapKey}&units=imperial`)
+	var weatherRaw = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${auth.openweathermapKey}&units=imperial`)
 	if (weatherRaw.data.cod === "404") {
 		return {
 			type: 4,
