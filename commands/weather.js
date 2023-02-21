@@ -1,5 +1,5 @@
 const { default: axios } = require("axios")
-const discordTypes = require("discord-api-types/v10")
+
 const auth = require("../auth.json")
 /**
  *
