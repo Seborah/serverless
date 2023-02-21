@@ -1,6 +1,7 @@
 const { default: axios } = require("axios")
 
-const auth = require("../auth.json")
+
+var auth = JSON.parse(process.env.SAKURA)
 /**
  *
  * @param {Map} options
