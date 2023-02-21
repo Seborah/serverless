@@ -16,13 +16,12 @@ functions.http("Sakura", async (req, res) => {
 	var isVerified = false
 	try {
 		isVerified = nacl.sign.detached.verify(Buffer.from(timestamp + body), Buffer.from(signature, "hex"), Buffer.from(PUBLIC_KEY, "hex"))
-	} catch (e) {}
-	if (!isVerified) {
-		return res.status(401).send("invalid request signature")
-	}
-	if (req.rawBody) {
 
-
+    } catch (e) { }
+    if (!isVerified) {
+        return res.status(401).send("invalid request signature")
+    }
+	if (req.rawBody){
 		var info = req.rawBody.toString()
 		var data = JSON.parse(info)
 		if (data.type == 1) {
@@ -30,7 +29,7 @@ functions.http("Sakura", async (req, res) => {
 			res.send({ type: 1 })
 		} else if (data.type == 2) {
 			//respond to slash commands
-			return res.send(commands.commands(data))
+			return res.send(await commands.commands(data))
 		} else {
 			return res.send("hello World")
 		}
