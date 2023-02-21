@@ -1,5 +1,5 @@
 var fs = require("fs")
-//const discordTypes = require("discord-api-types/v10")
+const discordTypes = require("discord-api-types/v10")
 //read files and then import them for functions
 var commandFunctions = new Map()
 onStart()
@@ -13,10 +13,10 @@ function onStart() {
 }
 /**
  *
- * @param {discordTypes.APIInteraction} interaction
+ * @param {discordTypes.APIApplicationCommandInteraction} interaction
  * @returns
  */
-function commands(interaction) {
+async function commands(interaction) {
 	var commandName = interaction.data.name
 	var commandArgs = new Map()
 	if (interaction.data.options) {
@@ -24,7 +24,7 @@ function commands(interaction) {
 			commandArgs.set(interaction.data.options[i].name, interaction.data.options[i].value)
 		}
 	}
-	return commandFunctions.get(commandName).command(commandArgs, interaction)
+	return await commandFunctions.get(commandName).command(commandArgs, interaction)
 }
 
 module.exports = { commands, onStart }
