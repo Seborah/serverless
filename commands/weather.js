@@ -3,8 +3,6 @@ const axios  = require("axios").default
 var auth = JSON.parse(process.env.SAKURA)
 
 
-var auth = JSON.parse(process.env.SAKURA)
-
 /**
  *
  * @param {Map} options
@@ -71,7 +69,7 @@ async function weather(options, interaction) {
 						},
 						{
 							name: "Wind Speed",
-							value: weather.wind.speed + " mph" + "\n" + weather.wind.deg + "°" + "\n" + "Gusts: " + weather.wind.gust + " mph",
+							value: weather.wind.speed + " mph" + "\n" + weather.wind.deg + "°" + "\n" + "Gusts: ",
 							inline: true,
 						},
 						{
