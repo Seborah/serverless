@@ -45,4 +45,4 @@ function music(options, interaction) {
 	}
 }
 
-module.exports = {command:  music }
+module.exports = { command: music }

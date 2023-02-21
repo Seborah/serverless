@@ -59,4 +59,4 @@ function avatarURL(id, avatarHash) {
 	}
 }
 
-module.exports = {command:  pfp }
+module.exports = { command: pfp }
